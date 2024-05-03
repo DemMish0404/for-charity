@@ -1,0 +1,2800 @@
+@import url('./font.css');
+
+//! variables
+$transition-effect: all 0.3s ease 0s;
+$font-family-accent: 'Muller';
+$accent-color-purple: #4C34C5;
+$accent-color-purple-hover: #6350C5;
+$accent-color-wheat-for-decor: #E3E2CD ;
+$bg-accent-color: #F3F2E7;
+
+
+//! variables end
+
+/* ---ОБНУЛЕНИЕ------- */
+// плюс для поделючения шрифтов не забывать добавлять в конец кода подключания &display=swap
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a{
+	color: inherit;
+}
+a,button {
+	
+	text-decoration: none;
+   cursor: pointer;
+}
+button{
+   background: none;
+   border: none;
+   
+   
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html{
+	scroll-behavior: smooth ;
+	width: 100vw;
+   overflow-x: hidden !important;
+}
+html,
+body {
+	height: 100%;
+
+}
+body {
+	font-family:  'Montserrat', Arial, Helvetica, sans-serif;
+   // font-size: ;
+   color: #000;
+   background-color: $bg-accent-color;
+	position: relative;
+	scroll-behavior: smooth ;
+	width: 100vw;
+   overflow-x: hidden !important;
+	
+}
+body.active{
+	overflow: hidden;
+}
+
+
+
+[class*="__container"]{
+
+	max-width: 1440px;
+	margin: 0px auto;
+  padding: 0px 15px;
+  
+}
+@media(max-width: 1087px){
+  [class*="__container"]{
+    max-width: 970px;
+  }
+}
+
+
+
+/* ---TABLET все объединено ниже------- */
+
+@media(max-width: 991.98px){
+  
+}
+
+
+
+/* ---MOBILE ------- */
+@media(max-width: 767.98px){
+  [class*="__container"]{
+    max-width: none;
+  }
+}
+/* ---MOBILE SMALL ------- */
+@media(max-width: 479.98px){
+   
+}
+
+
+/* ---ОБНУЛЕНИЕ END------- */
+
+
+//? БЭМ блоки 
+.button-transparrent {
+	display: inline-block;
+	box-sizing: border-box;
+	font-family: $font-family-accent;
+	padding: 15px 30px;
+	background-color: transparent;
+	color: $accent-color-purple;
+	border: 2px solid #BABAD9;
+	border-radius: 15px;
+	transition: $transition-effect;
+
+	&:hover{
+		border-color: $accent-color-purple;
+	}
+}
+
+.filled-button{
+	display: inline-block;
+	box-sizing: border-box;
+	font-family: $font-family-accent;
+	background-color: $accent-color-purple;
+	color: #fff;
+	border-radius: 15px;
+	padding: 20px;
+	transition:  $transition-effect;
+
+	&:hover{
+		background-color: $accent-color-purple-hover;
+	}
+	
+}
+
+.visually-hidden {
+	position: absolute; /* элемент вырывают из потока */
+	width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
+	height: 1px;
+	margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
+	padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
+	border: 0; /* убирают границу, она тоже может быть у каких-то элементов */
+	clip: rect(0 0 0 0); /* это свойство обрезает видимую область до нулевого значения */
+	overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
+ } 
+
+
+ 	
+  .custom-scrollbar{
+	overflow: auto;
+	&::-webkit-scrollbar{
+		transition: $transition-effect;
+		height: 12px;
+		width: 12px;
+		background-color: #fff;
+		border-radius: 10px;
+		
+	}
+
+	&::-webkit-scrollbar-thumb{
+		border-radius: 10px;
+	
+		
+		background-color: $accent-color-purple;
+
+
+
+		&:hover{
+			background-color: $accent-color-purple-hover;
+		}
+	}
+	&::-webkit-scrollbar-track{
+		
+	}
+ }
+
+ body.custom-scrollbar,.another-scrollbar.custom-scrollbar{
+	&::-webkit-scrollbar{
+		border-radius: 0;
+		
+	}
+	&::-webkit-scrollbar-thumb{
+		border: 2px solid white; 
+	
+		
+	}
+	.another-scrollbar.custom-scrollbar{
+		&::-webkit-scrollbar{
+			border-radius: 10px;
+		
+			
+		}
+	}
+}
+
+ .tittle-standart {
+	
+	font-family: $font-family-accent;
+	font-size: 3rem;
+	line-height: 1;
+	font-weight: 700;
+	color: $accent-color-purple;
+
+}
+.text-standart{
+	font-size: 1.125rem;
+	line-height: 1.4;
+	letter-spacing: 1.5px;
+}
+
+
+.money-we-need {
+
+	&__we-got-and-we-need {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		&:not(:last-child){
+			margin-bottom: 0.8125rem;
+		}
+	}
+
+	&__we-got {
+		font-size: 1.5rem;
+		color: $accent-color-purple;
+		font-weight: 600;
+	}
+
+	&__we-need {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: #A18C7F;
+	}
+
+	&__line,&__subline{
+		border-radius: 5px;
+		height: 7px;
+	}
+	&__line {
+		
+		width: 100%;
+		background-color: #E7E6D9;
+	}
+
+	&__subline {
+		width: 40%;
+		background-color: $accent-color-purple;
+
+		&.width-mid{
+			width: 50%;
+		}
+		&.width-full{
+			width: 100%;
+		}
+	}
+
+
+}
+
+.link-to{
+	transition: $transition-effect;
+	text-decoration: underline;
+
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+.soc-networks{
+	display: flex !important;
+	column-gap: 20px !important;
+	&__link{
+		transition: $transition-effect;
+		
+		max-width: 50px;
+
+		img{
+			max-width: 100%;
+		}
+
+		&:hover{
+			transform: translate(0,-15%);
+		}
+	}
+}
+//? БЭМ блоки END
+
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+
+
+	.header {
+		margin: 50px 0px 25px 0px;
+		&__container {
+			display: flex;
+			justify-content: space-between;
+			gap: 30px;
+
+			
+
+		}
+
+		&__logo {
+			font-family: $font-family-accent;
+			color: $accent-color-purple;
+			font-size: 4.25rem;
+			font-weight: 700;
+		}
+
+		&__content {
+			flex: 1 1 auto;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&__menu {
+			
+			display: flex;
+			justify-content: space-between;
+			gap: 60px;
+		}
+
+		&__nav {
+			max-width: 600px;
+			overflow: auto;
+			white-space: nowrap;
+
+
+
+		}
+
+		&__button-transparrent {
+		}
+
+		&__open-menu-for-mobile {
+			
+		}
+
+		&__close-menu-for-mobile {
+		}
+
+		.nav-header {
+
+			&__list {
+				display: flex;
+				align-items: center;
+				gap: 50px;
+			}
+	
+			&__item {
+
+				&.for-mobile{
+					display: none;
+				}
+			}
+	
+			&__link {
+				transition: $transition-effect;
+
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+	}
+	
+		.menu-burger-open {
+			display: none;
+		}
+		.menu-burger-close {
+			display: none;
+		}
+	
+
+		
+}
+@media (max-width: 991.98px) {
+	.header {
+		
+		margin: 50px 0px 15px 0px;
+
+		
+		&__container {
+			display: flex;
+			gap: 30px;
+			align-items: center;
+
+			
+			
+		}
+
+		&__logo {
+			position: relative;
+			z-index: 3;
+			font-family: $font-family-accent;
+			color: $accent-color-purple;
+			font-size: 2.25rem;
+			font-weight: 700;
+		}
+
+		&__content {
+			justify-content: end;
+			gap: 20px;
+		}
+
+		&__menu {
+			position: absolute;
+			z-index: 2;
+			inset-block-start: 0;
+			inset-inline-end: -1000vw;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			gap: 60px;
+
+			transition: $transition-effect;
+			background-color: #F3F2E7;
+			
+			&.active{
+				inset-inline-end: 0;
+			}
+		}
+
+		&__nav {
+			
+			padding-top: 120px;
+			padding-bottom: 30px;
+			gap: 15px;
+			max-width: none;
+			width: 100%;
+			overflow: auto;
+			white-space: nowrap;
+			font-size: 1.25rem;
+			font-weight: 500;
+			
+
+			ul{
+				
+				display: flex;
+				flex-direction: column;
+				max-width: 540px;
+				margin: 0 auto;
+
+				.button-transparrent,.filled-button{
+					font-size: 1rem;
+				}
+
+				
+			}
+
+		}
+
+		&__button-transparrent {
+		}
+
+		&__open-menu-for-mobile {
+		}
+
+		&__close-menu-for-mobile {
+		}
+
+		.nav-header {
+
+			&__list {
+				display: flex;
+				align-items: center;
+				gap: 50px;
+			}
+	
+			&__item {
+
+				&.for-mobile{
+					display: block;
+				}
+			}
+	
+			&__link {
+				transition: $transition-effect;
+
+
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+	}
+	
+		.menu-burger-close,.menu-burger-open{
+			position: relative;
+			z-index: 3;
+			width: 24px;
+			height: 16px;
+			
+
+			&::before,&::after{
+				position: absolute;
+				content: '';
+				height: 3px;
+				width: 100%;
+				border-radius: 5px;
+				background-color: $accent-color-purple;
+			}
+
+			&::before{
+				inset-block-start: 0;
+				inset-inline-end: 0;
+			}
+
+			&::after{
+				inset-block-end: 0;
+				inset-inline-end: 0;
+			}
+		}
+
+
+		.menu-burger-open {
+			
+			display: block;
+			span{
+				position: absolute;
+				inset-block-start: 50%;
+				transform: translate(0,-50%);
+				inset-inline-end: 0;
+				width: 100%;
+				height: 3px;
+				border-radius: 5px;
+				background-color: $accent-color-purple;
+			}
+		}
+		.menu-burger-open.active{
+			opacity: 0;
+			position: absolute;
+		}
+		.menu-burger-close {
+			display: block;
+			opacity: 0;
+			position: absolute;
+		}
+	
+		.menu-burger-close.active{
+			position: relative;
+			opacity: 1;
+			transform: translate(0,40%);
+			
+			
+			&::before{
+				
+				transform: rotate(45deg);
+				
+			}
+
+			&::after{
+				inset-block-start: 0;
+				transform: rotate(-45deg);
+			}
+		}
+		
+}
+}
+@media (max-width:750px) {
+	
+}
+//? верстка main 
+	.main{
+		margin-top: 25px;
+		flex: 1 1 auto;
+
+
+	
+
+		&__hello {
+			padding-bottom: 120px !important;
+		}
+	
+		&__our-goals {
+		}
+
+		&__about-us {
+			margin-top: 50px;
+		}
+
+		&__our-sponsors {
+			padding-bottom: 100px;
+		}
+
+		&__news {
+		}
+
+
+	//HELLO SECTION
+	.hello {
+			
+		padding-bottom: 100px;
+			
+			&__decor{
+				position: absolute;
+				z-index: -1;
+				inset-block-start: 0 ;
+				inset-inline-end: -80px;
+				max-width: 80%;
+				
+			}
+			
+
+			&__container {
+				position: relative;
+				z-index: 0;
+				display: flex;
+				column-gap: 50px;
+
+				&::before{
+					content: '';
+					position: absolute;
+					z-index: -1;
+					inset-block-start: 30px;
+					inset-inline-start: -80.5px;
+					width: 191px;
+					height: 187px;
+					border-radius: 50%;
+					background-color: $accent-color-wheat-for-decor;
+				}
+			}
+			&__accent-word-in-title{
+
+			}
+
+			&__content {
+				padding-top: 60px;
+				flex: 1 1 49%;
+				
+			}
+	
+			
+	
+			&__media {
+				flex: 1 1 39%;
+				
+			}
+	}
+	
+	.content-hello{
+
+		& > *:not(:last-child) {
+			margin-bottom: 40px;
+		}
+		&__title {
+
+			
+		}
+
+		&__text {
+		}
+
+		&__button {
+		}
+	}
+
+	.media-hello {
+	
+			&__img-block {
+				margin-left: auto;
+				max-width: 550px;
+				overflow: hidden;
+				height: auto;
+				border-radius: 50%;
+				background-position: center;
+				img{
+					min-width: 100%;
+				}
+
+			}
+	}
+	// HELLO SECTION END
+
+
+
+	// our goals 
+	.our-goals {
+		background-color: #fff;
+		padding: 80px 0px 50px 0px;
+			&__container {
+			}
+
+			&__text-block {
+				text-align: center;
+				max-width: 900px;
+				margin: 0 auto;
+
+				&:not(:last-child){
+					margin-bottom: 4.375rem;
+				}
+			}
+
+			&__title {
+
+				&:not(:last-child){
+					margin-bottom: 1.5625rem ;
+				}
+				
+			}
+
+			&__text {
+			}
+
+			&__cards-container {
+				position: relative;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: repeat( 2 , 1fr);
+				column-gap: 30px;
+				row-gap: 20px;
+
+
+				&::before,&::after{
+					content: '';
+					position: absolute;
+				}
+
+				&::before{
+					
+						z-index: 0;
+						inset-block-start: 30px;
+						inset-inline-start: -80.5px;
+						width: 191px;
+						height: 187px;
+						border-radius: 50%;
+						background-color: $accent-color-purple;
+				}
+
+				&::after{
+					z-index: 0;
+					inset-block-start: -30px;
+					inset-inline-end: -100px;
+					background-image: url('../img/main/decor2.png'); // todo: попробовать в svg перевести нормально
+					background-repeat: no-repeat;
+					width: 230px;
+					height: 300px;
+				}
+			}
+
+			&__card {
+				position: relative;
+				z-index: 1;
+				&:nth-child(2){
+				
+					grid-row: span 2;
+				}
+			}
+	}
+
+	.card-our-goals {
+		background-color: $bg-accent-color;
+		padding: 20px 35px 20px 25px;
+		border-radius: 25px;
+		overflow: hidden;
+			&__icon-and-title {
+				display: flex;
+				align-items: center;
+				gap: 30px;
+
+				&:not(:last-child){
+					margin-bottom: 1rem;
+				}
+			}
+
+			&__icon {
+				border-radius: 50%;
+				overflow: hidden;
+				width: 120px;
+				height: 120px;
+				display: flex;
+				justify-content: center;
+				background-color: #fff;
+
+				img{
+					max-width: 42px;
+				}
+			}
+
+			&__title {
+				color: $accent-color-purple;
+				font-weight: 600;
+				font-size: 1.25rem;
+			}
+
+			&__between-item {
+				position: relative;
+				width: 100%;
+				height: 3px;
+				background-color: #E7E6D9;
+
+				div{
+					position: absolute;
+					inset-block-start: 0;
+					inset-inline-start: 0;
+					width: 105px;
+					height: 3px;
+					background-color: #1B1C1F;
+				}
+
+				&:not(:last-child){
+					margin-bottom: 1.25rem;
+				}
+			}
+
+			&__text {
+			}
+	}
+// our goals section END
+
+
+	// About us 
+	.about-us {
+			padding: 200px 0px 300px 0px;
+			&__container {
+				display: flex;
+				justify-content: space-between;
+				column-gap: 30px;
+
+			}
+
+			&__media {
+				flex: 1 1 49%;
+			}
+
+			&__content {
+				flex: 1 1 49%;
+				align-self: center;
+			}
+	}
+	.media-about-us {
+			position: relative;
+			&__img-block {
+				margin-right: auto;
+				max-width: 560px;
+				border-radius: 25px;
+				overflow: hidden;
+				img{
+					max-width: 100%;
+					object-position: center;
+				}
+			}
+
+			&::before{
+				content: '';
+				position: absolute;
+				inset-block-start: -35%;
+				inset-inline-start: -22%;
+				background-image: url('../img/main/decor-for-the-about-section.svg');
+				background-repeat: no-repeat;
+				background-size: contain;
+				z-index: -1;
+				width: 116%;
+				height: 187%;
+			}
+
+
+	}
+
+	.content-about-us {
+
+			&__title {
+
+				&:not(:last-child){
+					margin-bottom: 1.5625rem;
+				}
+			}
+
+			&__text {
+			}
+	}
+	// about us section end
+
+
+	//our sponsors
+	
+.our-sponsors {
+
+		&__title {
+			text-align: center;
+
+			&:not(:last-child){
+				margin-bottom: 3rem;
+			}
+		}
+
+		&__container {
+		}
+
+		&__box-for-the-sponsors {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			column-gap: 70px;
+			overflow: auto;
+			padding-bottom: 10px;
+
+		}
+
+		&__sponsor {
+			position: relative;
+
+			img{
+				max-height: 103px;
+			}
+			&::before{
+				content: '';
+				position: absolute;
+				inset: 0;
+				transition: $transition-effect;
+				background-color: #ffffff87;
+			}
+			&:hover::before{
+				background-color: #ffffff00;
+			}
+		}
+}
+
+	//our sponsors END
+}
+
+	@media (max-width:1149px) {
+		.tittle-standart{
+			font-size: 32px;
+
+			
+		}
+
+		.hello {
+			
+			&__decor{
+				position: absolute;
+				z-index: 2;
+				inset-block-start: 0 ;
+				
+				inset-inline-end: -80px;
+
+				img{
+					max-width: 370px;
+				}
+			}
+			
+
+			&__container {
+				position: relative;
+				z-index: 0;
+				display: flex;
+				column-gap: 50px;
+			}
+			&__accent-word-in-title{
+
+			}
+
+			&__content {
+				padding-top: 60px;
+				flex: 1 1 49%;
+				
+			}
+	
+			
+	
+			&__media {
+				flex: 1 1 39%;
+				position: relative;
+				z-index: 1;
+				
+			}
+	}
+	
+		.media-hello {
+	
+			&__img-block {
+				margin-left: auto;
+				max-width: 400px !important;
+				overflow: hidden;
+				height: 400px !important;
+
+				border-radius: 50%;
+				img{
+					min-width: 100%;
+				}
+
+			}
+	}
+		
+	}
+
+	@media (max-width: 991.98px) {
+		//our goals 
+		.our-goals {
+			background-color: #fff;
+			padding: 80px 0px 50px 0px;
+				&__container {
+				}
+		
+				&__text-block {
+					text-align: center;
+					max-width: 900px;
+					margin: 0 auto;
+		
+					&:not(:last-child){
+						margin-bottom: 2.85rem;
+					}
+				}
+		
+				&__title {
+		
+					&:not(:last-child){
+						margin-bottom: 1.5625rem ;
+					}
+					
+				}
+		
+				&__text {
+				}
+		
+				&__cards-container {
+					display: grid;
+					flex-wrap: wrap;
+					grid-template-columns: repeat(1, 1fr) !important;
+					grid-template-rows: repeat(3,1fr) !important;
+					column-gap: 30px;
+					row-gap: 20px;
+				}
+		
+				&__card {
+		
+					&:nth-child(2){
+						padding-top: 20px !important; 
+						grid-row: span 1  !important;
+					}
+				}
+		}
+		
+		.card-our-goals {
+			background-color: $bg-accent-color;
+			padding: 20px 35px 20px 25px;
+			border-radius: 25px;
+			overflow: hidden;
+				&__icon-and-title {
+					display: flex;
+					align-items: center;
+					gap: 30px;
+		
+					&:not(:last-child){
+						margin-bottom: 1rem;
+					}
+				}
+		
+				&__icon {
+					border-radius: 50%;
+					overflow: hidden;
+					width: 120px;
+					height: 120px;
+					display: flex;
+					justify-content: center;
+					background-color: #fff;
+		
+					img{
+						max-width: 42px;
+					}
+				}
+		
+				&__title {
+					color: $accent-color-purple;
+					font-weight: 600;
+					font-size: 1.25rem;
+				}
+		
+				&__between-item {
+					position: relative;
+					width: 100%;
+					height: 3px;
+					background-color: #E7E6D9;
+		
+					div{
+						position: absolute;
+						inset-block-start: 0;
+						inset-inline-start: 0;
+						width: 105px;
+						height: 3px;
+						background-color: #1B1C1F;
+					}
+		
+					&:not(:last-child){
+						margin-bottom: 1.25rem;
+					}
+				}
+		
+				&__text {
+				}
+		}
+		//our goals end
+
+
+		//about us 
+
+		.about-us {
+			padding: 0px 0px 300px 0px !important;
+			&__container {
+				display: flex;
+				flex-direction: column-reverse !important;
+				align-items: center !important;
+				justify-content: space-between;
+				column-gap: 30px;
+				row-gap: 240px !important;
+
+			}
+
+			&__media {
+				flex: 1 1 49%;
+			}
+
+			&__content {
+				flex: 1 1 49%;
+				
+				text-align: center;
+			}
+		}
+		.media-about-us {
+				position: relative;
+				&__img-block {
+					margin-right: auto;
+					max-width: 560px;
+					border-radius: 25px;
+					overflow: hidden;
+					img{
+						max-width: 100%;
+						object-position: center;
+					}
+				}
+
+				&::before{
+					content: '';
+					position: absolute;
+					inset-block-start: -35%;
+					inset-inline-start: -22%;
+					background-image: url('../img/main/decor-for-the-about-section.svg');
+					background-repeat: no-repeat;
+					background-size: contain;
+					z-index: -1;
+					width: 116%;
+					height: 187%;
+				}
+
+
+		}
+
+		.content-about-us {
+
+				&__title {
+
+					&:not(:last-child){
+						margin-bottom: 1.5625rem;
+					}
+				}
+
+				&__text {
+				}
+		}
+		//about us end
+	}
+
+	@media (max-width: 750px ) {
+
+		.main{
+
+			margin-top: 15px;
+		}
+		.hello {
+			position: relative;
+
+			&::before{
+				content: '';
+				position: absolute;
+				inset-block-start: 10px !important;
+				inset-inline-start: -80.5px;
+				width: 191px;
+				height: 187px;
+				border-radius: 50%;
+				background-color: $accent-color-wheat-for-decor;
+			}
+			&__decor{
+				display: none;
+				
+			}
+			
+
+			&__container {
+				position: relative;
+				z-index: 0;
+				display: flex;
+				column-gap: 50px;
+			}
+			&__accent-word-in-title{
+
+			}
+
+			&__content {
+				position: relative;
+				z-index: 1;
+				flex: 1 1 49%;
+				padding-top: 10px;
+				
+			}
+	
+			
+	
+			&__media {
+				flex: 1 1 39%;
+				
+			}
+	}
+		.media-hello{
+			display: none;
+		}
+
+		//our goals 
+		.our-goals {
+			background-color: #fff;
+			padding: 80px 0px 50px 0px;
+				&__container {
+				}
+		
+				&__text-block {
+					text-align: center;
+					max-width: 900px;
+					margin: 0 auto;
+		
+					&:not(:last-child){
+						margin-bottom: 2.85rem;
+					}
+				}
+		
+				&__title {
+		
+					&:not(:last-child){
+						margin-bottom: 1.5625rem ;
+					}
+					
+				}
+		
+				&__text {
+				}
+		
+				&__cards-container {
+					display: grid;
+					
+					column-gap: 30px;
+					row-gap: 20px;
+
+					&::before,&::after{
+						display: none !important; 
+					}
+					
+				}
+		
+				&__card {
+		
+					&:nth-child(2){
+						padding-top: 20px !important; 
+						grid-row: span 1  !important;
+					}
+				}
+		}
+		
+		.card-our-goals {
+			background-color: $bg-accent-color;
+			padding: 20px 35px 20px 25px;
+			border-radius: 25px;
+			overflow: hidden;
+				&__icon-and-title {
+					display: flex;
+					align-items: center;
+					gap: 30px;
+		
+					&:not(:last-child){
+						margin-bottom: 1rem;
+					}
+				}
+		
+				&__icon {
+					border-radius: 50%;
+					overflow: hidden;
+					width: 120px;
+					height: 120px;
+					display: flex;
+					justify-content: center;
+					background-color: #fff;
+		
+					img{
+						max-width: 42px;
+					}
+				}
+		
+				&__title {
+					color: $accent-color-purple;
+					font-weight: 600;
+					font-size: 1.25rem;
+				}
+		
+				&__between-item {
+					position: relative;
+					width: 100%;
+					height: 3px;
+					background-color: #E7E6D9;
+		
+					div{
+						position: absolute;
+						inset-block-start: 0;
+						inset-inline-start: 0;
+						width: 105px;
+						height: 3px;
+						background-color: #1B1C1F;
+					}
+		
+					&:not(:last-child){
+						margin-bottom: 1.25rem;
+					}
+				}
+		
+				&__text {
+				}
+		}
+		//our goals end
+	}
+	@media (max-width: 548.98px) {
+		//our goals 
+		.our-goals {
+			background-color: #fff;
+			padding: 80px 0px 50px 0px;
+				&__container {
+				}
+		
+				&__text-block {
+					text-align: center;
+					max-width: 900px;
+					margin: 0 auto;
+		
+					&:not(:last-child){
+						margin-bottom: 4.375rem;
+					}
+				}
+		
+				&__title {
+		
+					&:not(:last-child){
+						margin-bottom: 1.5625rem ;
+					}
+					
+				}
+		
+				&__text {
+				}
+		
+				&__cards-container {
+					display: grid;
+					grid-template-columns: repeat(1, 1fr) !important;
+					grid-template-rows: repeat( 3 , 1fr) !important;
+					column-gap: 30px;
+					row-gap: 20px;
+				}
+		
+				&__card {
+		
+					&:nth-child(2){
+						padding-top: 20px !important; 
+						grid-row: span 1  !important;
+					}
+				}
+		}
+		
+		.card-our-goals {
+			background-color: $bg-accent-color;
+			padding: 20px 35px 20px 25px;
+			border-radius: 25px;
+			overflow: hidden;
+				&__icon-and-title {
+					display: flex;
+					align-items: center;
+					gap: 30px;
+		
+					&:not(:last-child){
+						margin-bottom: 1rem;
+					}
+				}
+		
+				&__icon {
+					border-radius: 50%;
+					overflow: hidden;
+					width: 90px !important;
+					height: 90px !important;
+					display: flex;
+					justify-content: center;
+					background-color: #fff;
+		
+					img{
+						max-width: 42px;
+					}
+				}
+		
+				&__title {
+					color: $accent-color-purple;
+					font-weight: 600;
+					font-size: 1.25rem;
+				}
+		
+				&__between-item {
+					position: relative;
+					width: 100%;
+					height: 3px;
+					background-color: #E7E6D9;
+		
+					div{
+						position: absolute;
+						inset-block-start: 0;
+						inset-inline-start: 0;
+						width: 105px;
+						height: 3px;
+						background-color: #1B1C1F;
+					}
+		
+					&:not(:last-child){
+						margin-bottom: 1.25rem;
+					}
+				}
+		
+				&__text {
+				}
+		}
+		//our goals end
+
+
+		//about us 
+
+		.about-us {
+			padding: 0px 0px 250px 0px !important;
+			&__container {
+				display: flex;
+				
+				justify-content: space-between;
+				column-gap: 30px;
+				row-gap: 220px !important;
+
+			}
+
+			&__media {
+				flex: 1 1 49%;
+			}
+
+			&__content {
+				flex: 1 1 49%;
+				
+				text-align: center;
+			}
+		}
+		.media-about-us {
+				position: relative;
+				&__img-block {
+					margin-right: auto;
+					max-width: 560px;
+					border-radius: 25px;
+					overflow: hidden;
+					img{
+						max-width: 100%;
+						object-position: center;
+					}
+				}
+
+				&::before{
+					content: '';
+					position: absolute;
+					inset-block-start: -35%;
+					inset-inline-start: -22%;
+					background-image: url('../img/main/decor-for-the-about-section.svg');
+					background-repeat: no-repeat;
+					background-size: contain;
+					z-index: -1;
+					width: 116%;
+					height: 187%;
+				}
+
+
+		}
+
+		.content-about-us {
+
+				&__title {
+
+					&:not(:last-child){
+						margin-bottom: 1.5625rem;
+					}
+				}
+
+				&__text {
+				}
+		}
+		//about us end
+
+
+		//our sponsors
+
+		.our-sponsors {
+
+			&__title {
+				text-align: center;
+	
+				&:not(:last-child){
+					margin-bottom: 2rem !important;
+				}
+			}
+	
+			&__container {
+			}
+	
+			&__box-for-the-sponsors {
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				column-gap: 70px;
+				overflow: auto;
+				padding-bottom: 10px;
+	
+			}
+	
+			&__sponsor {
+				position: relative;
+	
+				img{
+					max-height: 103px;
+				}
+				&::before{
+					content: '';
+					position: absolute;
+					inset: 0;
+					transition: $transition-effect;
+					background-color: #ffffff87;
+				}
+				&:hover::before{
+					background-color: #ffffff00;
+				}
+			}
+	}
+	
+		//our sponsors END
+		
+	}
+	@media (max-width: 479.98px) {
+		
+
+		//about us 
+
+		.about-us {
+			padding: 0px 0px 200px 0px !important;
+			&__container {
+				display: flex;
+				
+				justify-content: space-between;
+				column-gap: 30px;
+				row-gap: 160px !important;
+
+			}
+
+			&__media {
+				flex: 1 1 49%;
+			}
+
+			&__content {
+				flex: 1 1 49%;
+				
+				text-align: center;
+			}
+		}
+		.media-about-us {
+				position: relative;
+				&__img-block {
+					margin-right: auto;
+					max-width: 560px;
+					border-radius: 25px;
+					overflow: hidden;
+					img{
+						max-width: 100%;
+						object-position: center;
+					}
+				}
+
+				&::before{
+					content: '';
+					position: absolute;
+					inset-block-start: -35%;
+					inset-inline-start: -22%;
+					background-image: url('../img/main/decor-for-the-about-section.svg');
+					background-repeat: no-repeat;
+					background-size: contain;
+					z-index: -1;
+					width: 116%;
+					height: 187%;
+				}
+
+
+		}
+
+		.content-about-us {
+
+				&__title {
+
+					&:not(:last-child){
+						margin-bottom: 1.5625rem;
+					}
+				}
+
+				&__text {
+				}
+		}
+		//about us end
+	}
+
+	@media (max-width: 379.98px) {
+		
+
+		//about us 
+
+		.about-us {
+			padding: 0px 0px 160px 0px !important;
+			&__container {
+				display: flex;
+				
+				justify-content: space-between;
+				column-gap: 30px;
+				row-gap: 160px !important;
+
+			}
+
+			&__media {
+				flex: 1 1 49%;
+			}
+
+			&__content {
+				flex: 1 1 49%;
+				
+				text-align: center;
+			}
+		}
+		.media-about-us {
+				position: relative;
+				&__img-block {
+					margin-right: auto;
+					max-width: 560px;
+					border-radius: 25px;
+					overflow: hidden;
+					img{
+						max-width: 100%;
+						object-position: center;
+					}
+				}
+
+				&::before{
+					content: '';
+					position: absolute;
+					inset-block-start: -35%;
+					inset-inline-start: -22%;
+					background-image: url('../img/main/decor-for-the-about-section.svg');
+					background-repeat: no-repeat;
+					background-size: contain;
+					z-index: -1;
+					width: 116%;
+					height: 187%;
+				}
+
+
+		}
+
+		.content-about-us {
+
+				&__title {
+
+					&:not(:last-child){
+						margin-bottom: 1.5625rem;
+					}
+				}
+
+				&__text {
+				}
+		}
+		//about us end
+	}
+	// @media (min-width: 2149.98px) {
+	// 	.hello {
+	// 		position: relative;
+
+	// 		&::before{
+				
+				
+	// 		}
+	// 		&__decor{
+	// 			position: absolute;
+	// 			z-index: -1;
+	// 			inset-block-start: 0 ;
+	// 			inset-inline-end: 300px !important;
+	// 		}
+			
+
+	// 		&__container {
+	// 			position: relative;
+	// 			z-index: 0;
+	// 			display: flex;
+	// 			column-gap: 50px;
+	// 		}
+	// 		&__accent-word-in-title{
+
+	// 		}
+
+	// 		&__content {
+	// 			padding-top: 60px;
+	// 			flex: 1 1 49%;
+				
+	// 		}
+	
+			
+	
+	// 		&__media {
+	// 			flex: 1 1 39%;
+				
+	// 		}
+	// }
+	// }
+	// @media (min-width: 3000.98px) {
+	// 	.hello {
+	// 		position: relative;
+
+	// 		&::before{
+	// 			content: '';
+				
+	// 			opacity: 0;
+				
+	// 		}
+	// 		&__decor{
+	// 			opacity: 0;
+	// 		}
+			
+
+	// 		&__container {
+	// 			position: relative;
+	// 			z-index: 0;
+	// 			display: flex;
+	// 			column-gap: 50px;
+	// 		}
+	// 		&__accent-word-in-title{
+
+	// 		}
+
+	// 		&__content {
+	// 			padding-top: 60px;
+	// 			flex: 1 1 49%;
+				
+	// 		}
+	
+			
+	
+	// 		&__media {
+	// 			flex: 1 1 39%;
+				
+	// 		}
+	// }
+	// }
+
+
+
+
+	
+.news {
+	padding: 100px 0px 36px 0px;
+	background-color: #fff;
+		&__container {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+
+			&::before,&::after{
+				content: '';
+				position: absolute;
+				inset-block-end: 190px;
+				inset-inline-end: -285px;
+				width: 260px;
+				height: 252px;
+				background-image: url('../img/main/decor-for-the-news-block-2.svg');
+				background-repeat: no-repeat;
+			}
+			&::before{
+				inset-block-start: 4px;
+				inset-inline-start: -285px;
+				width: 260px;
+				height: 222px;
+				background-image: url('../img/main/decor-for-the-news-block.svg');
+				background-repeat: no-repeat;
+				
+			}
+		}
+
+		&__title {
+			text-align: center;
+
+			&:not(:last-child){
+				margin-bottom: 3.125rem;
+			}
+		}
+
+		&__cards-container {
+			display: grid;
+			// grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+			justify-content: space-between;
+			
+			gap: 30px;
+			// max-height: 670px;
+			overflow: hidden;
+
+			&:not(:last-child){
+				margin-bottom: 1.875rem;
+			}
+		}
+		&__cards-container.active{
+			max-height: none;
+			overflow: auto;
+
+			
+		}
+		&__card {
+			
+		}
+
+		&__btn {
+			align-self: center;
+		}
+}
+
+.card-news {
+		display: inline-block;
+		min-width: 290px;
+		
+		border-radius: 25px;
+		overflow: hidden;
+		background-color: $bg-accent-color;
+		&__img-block {
+			position: relative;
+			padding-bottom: 58%;
+			img{
+				position: absolute;
+				inset-block-start:0 ;
+				inset-inline-end: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				
+			}
+		}
+
+		&__text-block {
+			padding: 22px 24px 60px 24px;
+		}
+}
+.text-block-card-news {
+	
+	
+		& > *:not(:last-child){
+			margin-bottom: 1.25rem;
+		}
+		&__title {
+			font-size: 1.5rem;
+			font-weight: 500;
+		}
+
+		&__text {
+			
+			min-height: 200px;
+			max-height: 200px;
+			overflow: hidden !important;
+			
+			
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 8;  /* limit to 2 lines */
+		}
+
+		&__money-we-need {
+			
+		}
+}
+
+
+
+
+//? верстка main END
+
+	.footer{
+		padding-top: 100px;
+		background-color: $accent-color-purple;
+		color: white;
+
+	
+
+			&__join-us {
+			}
+
+			&__info-about-the-organization {
+			}
+
+			&__block-with-sections-of-the-site {
+			}
+			
+	.join-us {
+		padding-bottom: 85px;
+		position: relative;
+			display: flex;
+			justify-content: space-between;
+			gap: 30px;
+			
+			&::before{
+				content: '';
+				position: absolute;
+				z-index: 0;
+				inset-inline-start: -18%;
+				inset-block-end: 30%;
+				width: 423px;
+				height: 423px;
+				background-image: url('../img/footer/decor-footer.svg');
+				background-repeat: no-repeat;
+
+			}
+	
+			&__content {
+				position: relative;
+				z-index: 1;
+				flex: 1 1 60%;
+
+			}
+	
+			&__media{
+				position: relative;
+				z-index: 1;
+				flex: 1 1 30%;
+				align-self: center;
+			}
+
+			&__title {
+				&:not(:last-child){
+					margin-bottom: 3.125rem;
+				}
+				
+			}
+	
+			&__box-with-info-where-to-pay-to-help {
+				display: grid;
+				grid-template-columns: repeat(auto-fill , minmax(400px , 1fr ));
+				column-gap: 20px;
+				row-gap: 20px;
+			}
+	
+			&__item-where-to-send-money {
+			}
+	}
+		
+		
+		.item-where-to-send-money {
+		
+				&__title {
+					font-size: 1.5rem;
+					font-weight: 700;
+					&:not(:last-child){
+						margin-bottom: 0.5rem;
+					}
+				}
+		
+				&__bank-account {
+					transition: $transition-effect;
+					text-decoration: underline;
+
+					&:hover{
+						text-decoration: none;
+					}
+				}
+		}
+		
+		.media-join-us {
+			
+			border-radius: 30px;
+			overflow: hidden;
+			background: #fff;
+				&__img-block {
+					padding: 38px;
+					
+					
+					
+
+					img{
+						
+						width: 100%;
+						
+					}
+					
+				}
+		}
+	
+	}
+
+// Подблок Футера с инфой ( телефон , почта и тд)
+.info-about-the-organization {
+	color: #000;
+		position: relative;
+		z-index: 1;
+		&__another-container {
+			max-width: 1900px;
+			margin: 0 auto;
+			display: grid;
+			justify-content: center;
+			grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+		}
+
+		&__item {
+		}
+}
+.item-info-about-the-organization {
+	background-color: #EAE9DA;
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		padding: 50px;
+		
+		&__icon {
+			border-radius: 50%;
+			display: inline-block;
+			padding: 20px;
+			background-color: #fff;
+			img{
+				max-width: 40px;
+			}
+		}
+
+		&__content {
+		}
+
+		&__name {
+			font-size: 1.25rem;
+
+			&:not(:last-child){
+				margin-bottom: 1rem;
+			}
+		}
+
+		
+		&__value {
+
+			&:not(:last-child){
+				margin-bottom: 5px;
+			}
+
+			display: block;
+			transition: $transition-effect;
+			white-space: nowrap;
+			
+			font-size: 1.25rem;
+			font-weight: 600;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+}
+// Подблок Футера с инфой ( телефон , почта и тд) END 
+
+
+
+// блок в footer с навигацией по сайту 
+
+.block-with-sections-of-the-site {
+
+	padding-top: 20px;
+	padding-bottom: 20px;
+	&__container {
+		position: relative;
+		z-index: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		row-gap: 30px;
+
+		&::before{
+			content: '';
+			position: absolute;
+			
+			inset-block-end:0 ;
+			inset-inline-end: 0;
+			width: 307px;
+			height: 240px;
+			background-image: url('../img/footer/decor-footer-2.svg');
+			background-repeat: no-repeat;
+			
+		}
+
+	}
+
+	&__nav {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__link-up {
+		position: relative;
+		z-index: 1;
+		margin: 0 auto;
+		box-sizing: border-box;
+		display: inline-flex;
+		justify-content: center;
+		border-radius: 50%;
+		background-color: #fff;
+		width: 45px;
+		height: 45px;
+		
+		transition: $transition-effect;
+		img{
+			display: inline-block;
+			margin: auto;
+			max-width: 24px;
+		}
+
+		&:hover{
+			transform: translate(0,-10%);
+		}
+
+	}
+}
+.nav-footer {
+
+	&__list {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		max-width: 600px;
+		gap: 20px;
+		overflow: auto;
+		padding-bottom: 10px;
+	}
+
+	&__item {
+		
+	}
+
+	&__link {
+		padding:10px  ;
+		transition: $transition-effect;
+		white-space: nowrap;
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
+// блок в footer с навигацией по сайту END
+}
+
+
+@media (max-width: 991.98px) {
+	// news-block 
+	.news {
+		padding: 75px 0px 24px 0px !important;
+		background-color: #fff;
+			&__container {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+	
+	
+				&::before,&::after{
+					content: '';
+					position: absolute;
+					inset-block-end: 190px;
+					inset-inline-end: -285px;
+					width: 260px;
+					height: 252px;
+					background-image: url('../img/main/decor-for-the-news-block-2.svg');
+					background-repeat: no-repeat;
+				}
+				&::before{
+					inset-block-start: 4px;
+					inset-inline-start: -285px;
+					width: 260px;
+					height: 222px;
+					background-image: url('../img/main/decor-for-the-news-block.svg');
+					background-repeat: no-repeat;
+					
+				}
+			}
+	
+			&__title {
+				text-align: center;
+	
+				&:not(:last-child){
+					margin-bottom: 3.125rem;
+				}
+			}
+	
+			&__cards-container {
+				display: grid;
+				// grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)) !important;
+				justify-content: space-between;
+				
+				gap: 30px;
+				// max-height: 670px;
+				overflow: hidden;
+	
+				&:not(:last-child){
+					margin-bottom: 1.875rem;
+				}
+			}
+			&__cards-container.active{
+				max-height: none;
+				overflow: auto;
+	
+				
+			}
+			&__card {
+				
+			}
+	
+			&__btn {
+				align-self: center;
+			}
+	}
+	
+	.card-news {
+			display: inline-block;
+			min-width: 290px;
+			
+			border-radius: 25px;
+			overflow: hidden;
+			background-color: $bg-accent-color;
+			&__img-block {
+				position: relative;
+				padding-bottom: 58%;
+				img{
+					position: absolute;
+					inset-block-start:0 ;
+					inset-inline-end: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					
+				}
+			}
+	
+			&__text-block {
+				padding: 22px 24px 60px 24px;
+			}
+	}
+	.text-block-card-news {
+		
+		
+			& > *:not(:last-child){
+				margin-bottom: 1.25rem;
+			}
+			&__title {
+				font-size: 1.5rem;
+				font-weight: 500;
+			}
+	
+			&__text {
+				
+				min-height: 200px;
+				max-height: 200px;
+				overflow: hidden !important;
+				
+				
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 8;  /* limit to 2 lines */
+			}
+	
+			&__money-we-need {
+				
+			}
+	}
+	
+
+	//news block END
+
+
+
+
+	//footer
+	.footer{
+		padding-top: 2.94rem !important;
+	}
+	.join-us {
+		padding-bottom: 2.94rem !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 30px;
+		
+		&::before{
+			content: '';
+			position: absolute;
+			z-index: 0;
+			inset-inline-start: 40% !important;
+			
+			inset-block-end: 15% !important;
+			width: 336px !important;
+			height: 336px !important;
+			background-image: url('../img/footer/decor-footer.svg');
+			background-repeat: no-repeat;
+
+		}
+		&__content {
+			flex: 1 1 60%;
+
+		}
+
+		&__media{
+			flex: 1 1 30%;
+			align-self: center;
+		}
+
+		&__title {
+			&:not(:last-child){
+				margin-bottom: 1.75rem !important;
+			}
+			
+		}
+
+		&__box-with-info-where-to-pay-to-help {
+			display: grid;
+			grid-template-columns: repeat(auto-fill , minmax(290px , 1fr )) !important;
+			column-gap: 20px;
+			row-gap: 20px;
+		}
+
+		&__item-where-to-send-money {
+		}
+}
+	
+	.item-where-to-send-money {
+		
+		&__title {
+			font-size: 1.25rem !important;
+			font-weight: 700;
+			&:not(:last-child){
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&__bank-account {
+			transition: $transition-effect;
+			text-decoration: underline;
+
+			&:hover{
+				text-decoration: none;
+			}
+		}
+
+		
+		
+}
+
+.media-join-us {
+	position: relative;
+	
+	border-radius: 20px;
+	overflow: hidden;
+	background: #fff;
+
+	&::after{
+		
+	}
+		&__img-block {
+			padding: 24px !important;
+			
+			
+			
+
+			img{
+				
+				min-width: 150px !important;
+				max-width: 200px !important;
+				
+			}
+			
+		}
+}
+// info-about block in footer
+.item-info-about-the-organization {
+
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		padding: 50px;
+		
+		&__icon {
+			border-radius: 50%;
+			display: inline-block;
+			padding: 20px;
+			background-color: #fff;
+			img{
+				max-width: 40px;
+			}
+		}
+
+		&__content {
+		}
+
+		&__name {
+			font-size: 1.25rem;
+
+			&:not(:last-child){
+				margin-bottom: 0.4rem;
+			}
+		}
+
+		
+		&__value {
+			transition: $transition-effect;
+			
+			font-size: 1.25rem;
+			font-weight: 600;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+}
+.item-info-about-the-organization:nth-child(n){
+	background-color: #EAE9DA;
+}
+.item-info-about-the-organization:nth-child(2n){
+	background-color: #E3E1CB;
+}
+.item-info-about-the-organization:nth-child(3n){
+	background-color: #CBC8AD;
+}
+// info-about block in footer END
+
+
+
+//footer END
+	
+}
+@media (max-width: 750.98px) {
+	// news-block 
+	.news {
+		padding: 60px 0px 24px 0px !important;
+		background-color: #fff;
+			&__container {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+	
+	
+				&::before,&::after{
+					content: '';
+					position: absolute;
+					inset-block-end: 190px;
+					inset-inline-end: -285px;
+					width: 260px;
+					height: 252px;
+					background-image: url('../img/main/decor-for-the-news-block-2.svg');
+					background-repeat: no-repeat;
+				}
+				&::before{
+					inset-block-start: 4px;
+					inset-inline-start: -285px;
+					width: 260px;
+					height: 222px;
+					background-image: url('../img/main/decor-for-the-news-block.svg');
+					background-repeat: no-repeat;
+					
+				}
+			}
+	
+			&__title {
+				text-align: center;
+	
+				&:not(:last-child){
+					margin-bottom: 3.125rem;
+				}
+			}
+	
+			&__cards-container {
+				display: grid;
+				// grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)) !important;
+				justify-content: space-between;
+				
+				gap: 30px;
+				// max-height: 670px;
+				overflow: hidden;
+	
+				&:not(:last-child){
+					margin-bottom: 1.875rem;
+				}
+			}
+			&__cards-container.active{
+				max-height: none;
+				overflow: auto;
+	
+				
+			}
+			&__card {
+				
+			}
+	
+			&__btn {
+				align-self: center;
+			}
+	}
+	
+	.card-news {
+			display: inline-block;
+			min-width: 290px;
+			
+			border-radius: 25px;
+			overflow: hidden;
+			background-color: $bg-accent-color;
+			&__img-block {
+				position: relative;
+				padding-bottom: 58%;
+				img{
+					position: absolute;
+					inset-block-start:0 ;
+					inset-inline-end: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					
+				}
+			}
+	
+			&__text-block {
+				padding: 22px 24px 60px 24px;
+			}
+	}
+	.text-block-card-news {
+		
+		
+			& > *:not(:last-child){
+				margin-bottom: 1.25rem;
+			}
+			&__title {
+				font-size: 1.5rem;
+				font-weight: 500;
+			}
+	
+			&__text {
+				
+				min-height: 200px;
+				max-height: 200px;
+				overflow: hidden !important;
+				
+				
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 8;  /* limit to 2 lines */
+			}
+	
+			&__money-we-need {
+				
+			}
+	}
+	
+
+	//news block END
+
+
+
+	// footer 
+
+	.wrapper .info-about-the-organization__another-container {
+		max-width: 1900px;
+		margin: 0 auto;
+		display: grid;
+		justify-content: center;
+		grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+  
+  .soc-networks__link{
+
+	min-width: 40px;
+  }
+	// footer END
+}
+@media (max-width: 548px) {
+	// news-block 
+	.news {
+		padding: 50px 0px 24px 0px !important;
+		background-color: #fff;
+			&__container {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+	
+	
+				&::before,&::after{
+					content: '';
+					position: absolute;
+					inset-block-end: 190px;
+					inset-inline-end: -285px;
+					width: 260px;
+					height: 252px;
+					background-image: url('../img/main/decor-for-the-news-block-2.svg');
+					background-repeat: no-repeat;
+				}
+				&::before{
+					inset-block-start: 4px;
+					inset-inline-start: -285px;
+					width: 260px;
+					height: 222px;
+					background-image: url('../img/main/decor-for-the-news-block.svg');
+					background-repeat: no-repeat;
+					
+				}
+			}
+	
+			&__title {
+				text-align: center;
+	
+				&:not(:last-child){
+					margin-bottom: 3.125rem;
+				}
+			}
+	
+			&__cards-container {
+				display: grid;
+				// grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)) !important;
+				justify-content: space-between;
+				
+				gap: 30px;
+				// max-height: 670px;
+				overflow: hidden;
+	
+				&:not(:last-child){
+					margin-bottom: 1.875rem;
+				}
+			}
+			&__cards-container.active{
+				max-height: none;
+				overflow: auto;
+	
+				
+			}
+			&__card {
+				
+			}
+	
+			&__btn {
+				align-self: center;
+			}
+	}
+	
+	.card-news {
+			display: inline-block;
+			min-width: 290px;
+			
+			border-radius: 25px;
+			overflow: hidden;
+			background-color: $bg-accent-color;
+			&__img-block {
+				position: relative;
+				padding-bottom: 58%;
+				img{
+					position: absolute;
+					inset-block-start:0 ;
+					inset-inline-end: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+					
+				}
+			}
+	
+			&__text-block {
+				padding: 22px 24px 60px 24px;
+			}
+	}
+	.text-block-card-news {
+		
+		
+			& > *:not(:last-child){
+				margin-bottom: 1.25rem;
+			}
+			&__title {
+				font-size: 1.5rem;
+				font-weight: 500;
+			}
+	
+			&__text {
+				
+				min-height: 200px;
+				max-height: 200px;
+				overflow: hidden !important;
+				
+				
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 8;  /* limit to 2 lines */
+			}
+	
+			&__money-we-need {
+				
+			}
+	}
+	
+	
+	
+	
+	//news block END
+
+
+	//footer info about the organization
+	
+	
+		.item-info-about-the-organization__icon{
+			display: none !important;
+		}
+	//footer info about the organization END
+}
+
+
+@media (max-width: 479.98px) {
+	.item-info-about-the-organization{
+		padding: 35px !important;
+	}
+	.item-info-about-the-organization__value{
+		
+		
+	}
+}
+//?модификаторы 
+
+.white-color {
+	color: #fff;
+}
+.bright-bg-color{
+	
+		background-color: #EAE9DA;
+	
+}
+.medium-bg-color{
+	background-color: #E3E1CB;
+}
+.dark-bg-color{
+	background-color: #CBC8AD;
+}
+
+
+.soc-networks{
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	gap: 10px;
+}
+//?модификаторы end
