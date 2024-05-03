@@ -1572,7 +1572,9 @@ body.active{
 		
 	}
 	@media (max-width: 479.98px) {
+
 		
+	
 
 		//about us 
 
@@ -2798,3 +2800,150 @@ body.active{
 	gap: 10px;
 }
 //?модификаторы end
+
+
+
+
+
+
+// our goals mobile 
+@media (max-width: 479.98px) {
+		// our goals 
+		.our-goals {
+			background-color: #fff;
+			padding: 80px 0px 50px 0px;
+				&__container {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+	
+				&__text-block {
+					text-align: center;
+					max-width: 900px;
+					margin: 0 auto;
+	
+					&:not(:last-child){
+						margin-bottom: 4.375rem;
+					}
+				}
+	
+				&__title {
+	
+					&:not(:last-child){
+						margin-bottom: 1.5625rem ;
+					}
+					
+				}
+	
+				&__text {
+				}
+	
+				&__cards-container {
+					
+					position: relative;
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					grid-template-rows: repeat( 2 , 1fr);
+					column-gap: 30px;
+					row-gap: 20px;
+	
+	
+					&::before,&::after{
+						content: '';
+						position: absolute;
+					}
+	
+					&::before{
+						
+							z-index: 0;
+							inset-block-start: 30px;
+							inset-inline-start: -80.5px;
+							width: 191px;
+							height: 187px;
+							border-radius: 50%;
+							background-color: $accent-color-purple;
+					}
+	
+					&::after{
+						z-index: 0;
+						inset-block-start: -30px;
+						inset-inline-end: -100px;
+						background-image: url('../img/main/decor2.png'); // todo: попробовать в svg перевести нормально
+						background-repeat: no-repeat;
+						width: 230px;
+						height: 300px;
+					}
+				}
+	
+				&__card {
+					position: relative;
+					z-index: 1;
+					&:nth-child(2){
+					
+						grid-row: span 2;
+					}
+				}
+		}
+	
+		.card-our-goals {
+			background-color: $bg-accent-color;
+			padding: 20px 35px 20px 25px;
+			border-radius: 25px;
+			overflow: hidden;
+				&__icon-and-title {
+					display: flex;
+					align-items: center;
+					gap: 30px;
+	
+					&:not(:last-child){
+						margin-bottom: 1rem;
+					}
+				}
+	
+				&__icon {
+					border-radius: 50%;
+					overflow: hidden;
+					width: 100px ;
+					height: 100px  ;
+					display: flex;
+					justify-content: center;
+					background-color: transparent !important;
+	
+					img{
+						max-width: 35px !important;
+					}
+				}
+	
+				&__title {
+					color: $accent-color-purple;
+					font-weight: 600;
+					font-size: 1.25rem;
+				}
+	
+				&__between-item {
+					position: relative;
+					width: 100%;
+					height: 3px;
+					background-color: #E7E6D9;
+	
+					div{
+						position: absolute;
+						inset-block-start: 0;
+						inset-inline-start: 0;
+						width: 105px;
+						height: 3px;
+						background-color: #1B1C1F;
+					}
+	
+					&:not(:last-child){
+						margin-bottom: 1.25rem;
+					}
+				}
+	
+				&__text {
+				}
+		}
+	// our goals section END
+}
+
+//our goals mobile END
