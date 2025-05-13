@@ -89,6 +89,14 @@ body.active {
 }
 /* ---MOBILE SMALL ------- */
 /* ---ОБНУЛЕНИЕ END------- */
+.go-to {
+  transition: all 0.3s ease 0s;
+  text-decoration: underline;
+}
+.go-to:hover {
+  text-decoration: none;
+}
+
 .button-transparrent {
   display: inline-block;
   box-sizing: border-box;
@@ -1757,7 +1765,7 @@ body.custom-scrollbar .another-scrollbar.custom-scrollbar::-webkit-scrollbar, .a
     margin: 0 auto;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-template-columns: 1fr;
   }
   .soc-networks__link {
     min-width: 40px;
@@ -2004,12 +2012,15 @@ body.custom-scrollbar .another-scrollbar.custom-scrollbar::-webkit-scrollbar, .a
 
 .slide-brand-new-news {
   position: relative;
+  padding-block-end: 50%;
   transition: all 0.3s ease 0s;
 }
 .slide-brand-new-news__img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
   display: block;
   max-width: 100%;
-  max-height: 600px;
   margin: 0 auto;
   -o-object-fit: cover;
      object-fit: cover;
